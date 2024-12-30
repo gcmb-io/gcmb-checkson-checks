@@ -6,8 +6,6 @@ from datetime import timedelta
 from datetime import timezone
 import json
 
-username = os.environ.get('GCMB_IO_USERNAME')
-password = os.environ.get('GCMB_IO_PASSWORD')
 checkson_dir = os.environ['CHECKSON_DIR']
 
 def write_message(message):
