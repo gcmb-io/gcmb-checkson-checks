@@ -29,13 +29,13 @@ def check_adsb():
     stats = r.json()
 
     if not check_stat_timestamp(stats, 5):
-        write_message(f"Last timestamp is {stats['lastTimestamp']}, which is more than 5 minutes ago")
+        write_message(f"ADS-B: Last timestamp is {stats['lastTimestamp']}, which is more than 5 minutes ago")
         sys.exit(1)
 
     number_of_messages = int(stats['prevMinuteCount'])
 
     if number_of_messages < 100:
-        write_message(f"Number of messages in last minute is {number_of_messages}, which is less than 100")
+        write_message(f"ADS-B: Number of messages in last minute is {number_of_messages}, which is less than 100")
         sys.exit(1)
 
     print(f"ADS-B check successful, stats: {stats}")
@@ -50,13 +50,13 @@ def check_smard():
     stats = r.json()
 
     if not check_stat_timestamp(stats, 30):
-        write_message(f"Last timestamp is {stats['lastTimestamp']}, which is more than 30 minutes ago")
+        write_message(f"SMARD: Last timestamp is {stats['lastTimestamp']}, which is more than 30 minutes ago")
         sys.exit(1)
 
     number_of_messages = int(stats['prevHourCount'])
 
     if number_of_messages < 100:
-        write_message(f"Number of messages in previous hour is {number_of_messages}, which is less than 100")
+        write_message(f"SMARD: Number of messages in previous hour is {number_of_messages}, which is less than 100")
         sys.exit(1)
 
     print(f"SMARD check successful, stats: {stats}")
