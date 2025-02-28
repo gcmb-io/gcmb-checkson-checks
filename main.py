@@ -20,7 +20,7 @@ def check_stat_timestamp(stats, max_minutes):
 
 
 def check(org, project, last_timestamp_in_minutes=None, min_messages_prev_hour=None, min_messages_prev_minute=None):
-    url = f"https://api.gcmb.io/api/orgs/{org}/projects/{project}/publish-stats"
+    url = f"https://api.gcmb.io/orgs/{org}/projects/{project}/publish-stats"
 
     errors = []
 
